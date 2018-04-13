@@ -50,8 +50,16 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../team4_sample/team4.cpp 
-OBJECTS       = team4.o
+SOURCES       = ../team4_sample/team4.cpp \
+		../team4_sample/derivative.cpp \
+		../team4_sample/variable.cpp \
+		../team4_sample/gcd.cpp \
+		../team4_sample/uniq.cpp 
+OBJECTS       = team4.o \
+		derivative.o \
+		variable.o \
+		gcd.o \
+		uniq.o
 DIST          = ../../Qt/5.10.1/gcc_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.10.1/gcc_64/mkspecs/common/unix.conf \
 		../../Qt/5.10.1/gcc_64/mkspecs/common/linux.conf \
@@ -213,7 +221,16 @@ DIST          = ../../Qt/5.10.1/gcc_64/mkspecs/features/spec_pre.prf \
 		../team4_sample/team4.pro ../team4_sample/team4.h \
 		../team4_sample/team4_global.h \
 		../team4_sample/haff.h \
-		../team4_sample/sort.h ../team4_sample/team4.cpp
+		../team4_sample/sort.h \
+		../team4_sample/derivative.h \
+		../team4_sample/variable.h \
+		../team4_sample/derivtask.h \
+		../team4_sample/gcd.h \
+		../team4_sample/uniq.h ../team4_sample/team4.cpp \
+		../team4_sample/derivative.cpp \
+		../team4_sample/variable.cpp \
+		../team4_sample/gcd.cpp \
+		../team4_sample/uniq.cpp
 QMAKE_TARGET  = team4
 DESTDIR       = 
 TARGET        = libteam4.so.1.0.0
@@ -578,8 +595,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/5.10.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../team4_sample/team4.h ../team4_sample/team4_global.h ../team4_sample/haff.h ../team4_sample/sort.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../team4_sample/team4.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../team4_sample/team4.h ../team4_sample/team4_global.h ../team4_sample/haff.h ../team4_sample/sort.h ../team4_sample/derivative.h ../team4_sample/variable.h ../team4_sample/derivtask.h ../team4_sample/gcd.h ../team4_sample/uniq.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../team4_sample/team4.cpp ../team4_sample/derivative.cpp ../team4_sample/variable.cpp ../team4_sample/gcd.cpp ../team4_sample/uniq.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -651,8 +668,48 @@ team4.o: ../team4_sample/team4.cpp ../team4_sample/team4.h \
 		../../Qt/5.10.1/gcc_64/include/QtCore/qmutex.h \
 		../../Qt/5.10.1/gcc_64/include/QtCore/qnumeric.h \
 		../../Qt/5.10.1/gcc_64/include/QtCore/qversiontagging.h \
-		../team4_sample/haff.h
+		../team4_sample/haff.h \
+		../team4_sample/sort.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/QString \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qstringliteral.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qstringview.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/QStringList \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/QVector \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qvector.h \
+		../../Qt/5.10.1/gcc_64/include/QtCore/qpoint.h \
+		../team4_sample/gcd.h \
+		../team4_sample/uniq.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o team4.o ../team4_sample/team4.cpp
+
+derivative.o: ../team4_sample/derivative.cpp ../team4_sample/derivative.h \
+		../team4_sample/variable.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o derivative.o ../team4_sample/derivative.cpp
+
+variable.o: ../team4_sample/variable.cpp ../team4_sample/variable.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o variable.o ../team4_sample/variable.cpp
+
+gcd.o: ../team4_sample/gcd.cpp ../team4_sample/gcd.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gcd.o ../team4_sample/gcd.cpp
+
+uniq.o: ../team4_sample/uniq.cpp ../team4_sample/uniq.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o uniq.o ../team4_sample/uniq.cpp
 
 ####### Install
 
