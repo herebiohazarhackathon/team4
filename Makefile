@@ -212,7 +212,8 @@ DIST          = ../../Qt/5.10.1/gcc_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.10.1/gcc_64/mkspecs/features/lex.prf \
 		../team4_sample/team4.pro ../team4_sample/team4.h \
 		../team4_sample/team4_global.h \
-		../team4_sample/haff.h ../team4_sample/team4.cpp
+		../team4_sample/haff.h \
+		../team4_sample/sort.h ../team4_sample/team4.cpp
 QMAKE_TARGET  = team4
 DESTDIR       = 
 TARGET        = libteam4.so.1.0.0
@@ -577,7 +578,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/5.10.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../team4_sample/team4.h ../team4_sample/team4_global.h ../team4_sample/haff.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../team4_sample/team4.h ../team4_sample/team4_global.h ../team4_sample/haff.h ../team4_sample/sort.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../team4_sample/team4.cpp $(DISTDIR)/
 
 
